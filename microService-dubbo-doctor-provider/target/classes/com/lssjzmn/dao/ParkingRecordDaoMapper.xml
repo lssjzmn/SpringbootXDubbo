@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lssjzmn.dao.ParkingRecordMapper">
+    <select id="findParkingRecordsByCarNo" resultMap="findParkingRecordsByCarNoMap">
+        SELECT *
+        FROM parking_io_record P
+        WHERE P.car_no = #{carNo} AND P.io_type = #{ioType} AND P.payed = #{payed}
+        ORDER BY P.io_time DESC
+    </select>
+
+    <resultMap id="findParkingRecordsByCarNoMap" type="com.lssjzmn.entity.ParkingRecord">
+        <id column="id" property="id"/>
+        <result column="park_name" property="parkingName"/>
+        <result column="io_time" property="ioTime"/>
+        <result column="io_type" property="ioType"/>
+        <result column="payed" property="payed"/>
+        <result column="car_no" property="carNo"/>
+        <result column="money" property="money"/>
+    </resultMap>
+
+</mapper>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lssjzmn.dao.UserRoleDaoMapper">
+
+    <select id="findAllUserRoles" resultMap="findAllUserRolesMap">
+        SELECT
+            u.*,
+            p.ID          p_id,
+            p.NAME        p_name,
+            p.DESCRIPTION p_desc,
+            p.LEVEL       p_level
+        FROM userrole u LEFT JOIN permission p ON u.ID = p.USERROLE_ID
+        WHERE 1 = 1 AND u.ROLE = #{role}
+    </select>
+
+    <resultMap id="findAllUserRolesMap" type="com.lssjzmn.entity.UserRole">
+        <id column="ID" property="id"/>
+        <result column="ROLE" property="role"/>
+        <result column="DETAIL" property="detail"/>
+        <collection property="permissions" ofType="com.lssjzmn.entity.Permission">
+            <id column="p_id" property="id"/>
+            <result column="p_desc" property="description"/>
+            <result column="p_level" property="level"/>
+            <result column="p_name" property="name"/>
+        </collection>
+    </resultMap>
+
+</mapper>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lssjzmn.dao.DepartmentDaoMapper">
+
+    <select id="findDepartmentsByClas" parameterType="map"
+            resultMap="findDepartmentsByClasMap">
+        SELECT *
+        FROM dept d
+        WHERE d.CLASS = #{params.clas}
+    </select>
+
+    <resultMap id="findDepartmentsByClasMap" type="com.lssjzmn.entity.Department">
+        <id column="ID" property="id"/>
+        <result column="DEPT_NAME" property="deptName" javaType="string"/>
+        <result column="ESTABLISH_TIME" property="establishTime" javaType="date"/>
+        <result column="KESHI_NUM" property="keshiNum" javaType="int"/>
+        <result column="STAFF_NUM" property="staffNum" javaType="int"/>
+        <result column="CLASS" property="clas" javaType="string"/>
+        <result column="SITE_IP" property="siteIp" javaType="int"/>
+    </resultMap>
+
+</mapper>

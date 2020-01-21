@@ -1,0 +1,14 @@
+com\lssjzmn\entity\ParkingRecord.class
+com\lssjzmn\model\SimpResult.class
+com\lssjzmn\entity\Department.class
+com\lssjzmn\manager\department\api\DepartmentManager.class
+com\lssjzmn\entity\Doctor.class
+com\lssjzmn\entity\Salary.class
+com\lssjzmn\model\ErrorMessage.class
+com\lssjzmn\entity\Permission.class
+com\lssjzmn\entity\UserRole.class
+com\lssjzmn\manager\doctor\api\DoctorManager.class
+com\lssjzmn\model\PageData.class
+com\lssjzmn\entity\Patient.class
+com\lssjzmn\util\AbstractHttpInvokerService.class
+com\lssjzmn\model\TreesModel.class

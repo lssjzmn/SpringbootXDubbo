@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lssjzmn.dao.DoctorDaoMapper">
+
+    <sql id="Base_Column_List">
+        doct.ID id,
+        doct.NAME name,
+        doct.GENDER gender,
+        doct.RANK rank,
+        doct.DEPT dept,
+        doct.AGE age,
+        doct.CATEGORY category,
+        de.CLASS class,
+        de.DEPT_NAME deptName,
+        de.ESTABLISH_TIME esTime,
+        de.KESHI_NUM keshiNum,
+        de.STAFF_NUM staffNum,
+        de.SITE_IP siteIp
+    </sql>
+
+    <select id="findDoctorsByDeptId" parameterType="com.lssjzmn.entity.Department"
+            resultMap="findDoctorsByDeptIdMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM doctor doct LEFT JOIN dept de ON de.ID = doct.DEPT
+        <where>
+            <if test="dept!=null and dept.id!=null">
+                AND doct.DEPT = #{dept.id,jdbcType=VARCHAR}
+            </if>
+            <if test="age!=null and age >0">
+                AND doct.AGE >= #{age,jdbcType=INTEGER}
+            </if>
+            <if test="rankRange!=null and rankRange.size()>0">
+                AND doct.RANK IN
+                <foreach collection="rankRange" index="index" item="item" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+        </where>
+        ORDER BY age DESC
+    </select>
+
+    <resultMap id="findDoctorsByDeptIdMap" type="com.lssjzmn.entity.Doctor">
+        <id column="ID" property="id"/>
+        <result column="NAME" property="name"/>
+        <result column="GENDER" property="gender"/>
+        <result column="RANK" property="rank"/>
+        <result column="AGE" property="age"/>
+        <result column="CATEGORY" property="category"/>
+        <association property="dept" javaType="com.lssjzmn.entity.Department">
+            <result column="DEPT" property="id"/>
+            <result column="CLASS" property="clas"/>
+            <result column="deptName" property="deptName"/>
+            <result column="esTime" property="establishTime"/>
+            <result column="keshiNum" property="keshiNum"/>
+            <result column="staffNum" property="staffNum"/>
+            <result column="siteIp" property="siteIp"/>
+        </association>
+    </resultMap>
+
+    <select id="findDoctorsByPaging"
+            resultMap="findDoctorsByDeptIdMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM doctor doct LEFT JOIN dept de ON de.ID = doct.DEPT
+        ORDER BY age DESC
+    </select>
+
+    <insert id="saveDoctor" parameterType="com.lssjzmn.entity.Doctor">
+        INSERT INTO doctor
+        (ID, NAME, GENDER, RANK, AGE, CATEGORY, DEPT)
+        VALUES (#{doctor.id}, #{doctor.name}, #{doctor.gender}, #{doctor.rank}, #{doctor.age},
+                #{doctor.category}, #{doctor.dept.id})
+    </insert>
+
+    <insert id="saveDoctorList" parameterType="java.util.List">
+        INSERT INTO doctor
+        (ID, NAME, GENDER, RANK, AGE, CATEGORY, DEPT)
+        VALUES
+        <foreach collection="doctors" item="item" index="index" separator=",">
+            (
+            #{item.id},
+            #{item.name},
+            #{item.gender},
+            #{item.rank},
+            #{item.age},
+            #{item.category},
+            #{item.dept.id}
+            )
+        </foreach>
+    </insert>
+
+</mapper>

@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/microService-dubbo-consumer/microService-dubbo-consumer.iml" filepath="$PROJECT_DIR$/microService-dubbo-consumer/microService-dubbo-consumer.iml" />
       <module fileurl="file://$PROJECT_DIR$/microService-dubbo-dept-provider/microService-dubbo-dept-provider.iml" filepath="$PROJECT_DIR$/microService-dubbo-dept-provider/microService-dubbo-dept-provider.iml" />
       <module fileurl="file://$PROJECT_DIR$/microService-dubbo-doctor-provider/microService-dubbo-doctor-provider.iml" filepath="$PROJECT_DIR$/microService-dubbo-doctor-provider/microService-dubbo-doctor-provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/microService-dubbo-frontClient/microService-dubbo-frontClient.iml" filepath="$PROJECT_DIR$/microService-dubbo-frontClient/microService-dubbo-frontClient.iml" />
     </modules>
   </component>
 </project>

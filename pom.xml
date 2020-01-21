@@ -13,6 +13,7 @@
         <module>microService-dubbo-consumer</module>
         <module>microService-dubbo-dept-provider</module>
         <module>microService-dubbo-doctor-provider</module>
+        <module>microService-dubbo-frontClient</module>
     </modules>
 
     <packaging>pom</packaging>

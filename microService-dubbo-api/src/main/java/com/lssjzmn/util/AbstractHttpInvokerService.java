@@ -27,7 +27,7 @@ public abstract class AbstractHttpInvokerService<T> {
         httpInvoker.setServiceUrl(setServiceUrl());
         HttpComponentsHttpInvokerRequestExecutor requestExecutor = new HttpComponentsHttpInvokerRequestExecutor();
         requestExecutor.setConnectTimeout(100000);
-        requestExecutor.setConnectionRequestTimeout(600000);
+        //requestExecutor.setConnectionRequestTimeout(600000);
         requestExecutor.setHttpClient(createHisHttpClient());
         httpInvoker.setHttpInvokerRequestExecutor(requestExecutor);
         httpInvoker.afterPropertiesSet();

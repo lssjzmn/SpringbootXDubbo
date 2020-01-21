@@ -1,4 +1,4 @@
-package com.lssjzmn.invoker;
+package com.lssjzmn.front;
 
 import com.lssjzmn.entity.Department;
 import com.lssjzmn.entity.Doctor;
@@ -8,20 +8,17 @@ import com.lssjzmn.utils.DeptHttpInvokerService;
 import com.lssjzmn.utils.DoctorHttpInvokerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Component
-public class InvokerTest {
+public class FrontMain {
 
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
+    private static Logger logger = LoggerFactory.getLogger(FrontMain.class);
 
-    //@PostConstruct
-    public void initTests() {
+    public static void main(String[] ars) {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("clas", "R2");
         List<Integer> rankRange = new ArrayList<>();
@@ -40,6 +37,6 @@ public class InvokerTest {
         dept.setId("uehe003fh835fh934");
         List<Doctor> doctorList = doctorManager.findDoctorsByDeptId(dept, -1, rankRange);
         System.out.println("InvokerTest doctorList" + doctorList.toString());
-    }
 
+    }
 }

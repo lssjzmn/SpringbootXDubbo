@@ -29,7 +29,7 @@
         <java.version>1.8</java.version>
         <springweb.version>1.5.9.RELEASE</springweb.version>
         <dubbo.version>2.5.3</dubbo.version>
-        <zk.version>3.4.5</zk.version>
+        <zk.version>3.4.14</zk.version>
         <zkclient.version>0.1</zkclient.version>
     </properties>
 

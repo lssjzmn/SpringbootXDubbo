@@ -19,6 +19,7 @@ public class DoctorManagerImp implements DoctorManager {
 
     @Override
     public List<Doctor> findDoctorsByDeptId(Department department, Integer age, List rankRange) {
+        System.out.println("dubbo service DoctorManagerImp called");
         return doctorService.findDoctorsByDeptId(department, age, rankRange);
     }
 

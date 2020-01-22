@@ -20,7 +20,4 @@
 
     <bean id="springAppContext" class="com.lssjzmn.core.context.SpringAppcontextHolder"/>
 
-    <import resource="applicationHttpInvoker.xml"/>
-    <!--<import resource="dubbo-provider.xml"/>-->
-
 </beans>

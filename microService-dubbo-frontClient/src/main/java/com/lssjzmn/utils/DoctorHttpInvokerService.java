@@ -7,7 +7,7 @@ public class DoctorHttpInvokerService extends AbstractHttpInvokerService<DoctorM
 
     @Override
     public String setServiceUrl() {
-        return "http://localhost:8082/doctorManager";
+        return "http://localhost:8083/doctorManager";
     }
 
 }

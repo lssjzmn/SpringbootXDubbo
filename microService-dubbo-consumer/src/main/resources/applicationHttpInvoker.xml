@@ -10,8 +10,13 @@
 		http://www.springframework.org/schema/tx
 		http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
-    <bean id="doctorManager" class="com.lssjzmn.manager.doctor.imp.DoctorManagerImp"/>
+    <bean id="deptManager" class="com.lssjzmn.invoker.DepartmentManagerProxy"/>
+    <bean id="doctorManager" class="com.lssjzmn.invoker.DoctorManagerProxy"/>
 
+    <bean id="deptInterface" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+        <property name="service" ref="deptManager"/>
+        <property name="serviceInterface" value="com.lssjzmn.manager.department.api.DepartmentManager"/>
+    </bean>
     <bean id="doctorInterface" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
         <property name="service" ref="doctorManager"/>
         <property name="serviceInterface" value="com.lssjzmn.manager.doctor.api.DoctorManager"/>
@@ -20,6 +25,7 @@
     <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
         <property name="mappings">
             <props>
+                <prop key="/deptManager">deptInterface</prop>
                 <prop key="/doctorManager">doctorInterface</prop>
             </props>
         </property>

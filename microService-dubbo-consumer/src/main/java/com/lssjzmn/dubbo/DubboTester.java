@@ -9,7 +9,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -26,7 +25,7 @@ public class DubboTester {
     @Reference
     private DoctorManager doctorManager;
 
-    @PostConstruct
+    //@PostConstruct
     public void test() {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("clas", "R2");

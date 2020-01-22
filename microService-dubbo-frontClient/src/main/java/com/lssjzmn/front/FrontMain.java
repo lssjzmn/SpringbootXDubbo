@@ -30,13 +30,13 @@ public class FrontMain {
 
         DepartmentManager departmentManager = deptHttpInvokerService.getHttpInvokerService();
         List<Department> departments = departmentManager.findDepartmentsByClas(paramMap);
-        System.out.println("InvokerTest departments" + departments.toString());
+        System.out.println(" #InvokerTest departments " + departments);
 
         DoctorManager doctorManager = doctorHttpInvokerService.getHttpInvokerService();
         Department dept = new Department();
         dept.setId("uehe003fh835fh934");
         List<Doctor> doctorList = doctorManager.findDoctorsByDeptId(dept, -1, rankRange);
-        System.out.println("InvokerTest doctorList" + doctorList.toString());
+        System.out.println("InvokerTest doctorList " + doctorList.size());
 
     }
 }

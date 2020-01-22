@@ -7,7 +7,7 @@ public class DeptHttpInvokerService extends AbstractHttpInvokerService<Departmen
 
     @Override
     public String setServiceUrl() {
-        return "http://localhost:8081/deptManager";
+        return "http://localhost:8083/deptManager";
     }
 
 }

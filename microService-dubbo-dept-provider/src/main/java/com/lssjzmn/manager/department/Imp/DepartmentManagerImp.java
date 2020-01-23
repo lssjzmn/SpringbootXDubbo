@@ -45,10 +45,8 @@ public class DepartmentManagerImp implements DepartmentManager {
         rankRange.add(29);
         Department dept = new Department();
         dept.setId("uehe003fh835fh934");
-        new Thread(() -> {
-            List<Doctor> ret = doctorManager.findDoctorsByDeptId(dept, -1, rankRange);
-            System.out.println("dubbo service findDoctorsByDeptId called by DepartmentManagerImp");
-        }).start();
+        List<Doctor> ret = doctorManager.findDoctorsByDeptId(dept, -1, rankRange);
+        System.out.println("dubbo service findDoctorsByDeptId called by DepartmentManagerImp");
         return departmentService.findDepartmentsByClas(params);
     }
 }

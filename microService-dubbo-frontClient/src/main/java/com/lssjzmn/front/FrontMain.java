@@ -1,7 +1,6 @@
 package com.lssjzmn.front;
 
 import com.lssjzmn.entity.Department;
-import com.lssjzmn.entity.Doctor;
 import com.lssjzmn.manager.department.api.DepartmentManager;
 import com.lssjzmn.manager.doctor.api.DoctorManager;
 import com.lssjzmn.utils.DeptHttpInvokerService;
@@ -36,7 +35,7 @@ public class FrontMain {
         Department dept = new Department();
         dept.setId("uehe003fh835fh934");
 
-        List<Doctor> doctorList = doctorManager.findDoctorsByDeptId(dept, -1, rankRange);
+        //List<Doctor> doctorList = doctorManager.findDoctorsByDeptId(dept, -1, rankRange);
         System.out.println("InvokerTest doctorList ");
         System.out.println("InvokerTest main ends ");
 

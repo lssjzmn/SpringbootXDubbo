@@ -13,7 +13,7 @@ public class DoctorManagerProxy implements DoctorManager {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @Reference(timeout = 10000, check = false)
+    @Reference(timeout = 10000, check = false, loadbalance = "leastactive")
     private DoctorManager doctorManager;
 
     @Override

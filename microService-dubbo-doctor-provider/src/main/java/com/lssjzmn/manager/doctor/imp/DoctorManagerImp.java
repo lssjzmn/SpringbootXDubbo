@@ -27,8 +27,8 @@ public class DoctorManagerImp implements DoctorManager {
         List<Doctor> ret = new ArrayList<>();
         ret.add(doctor);
         System.out.println("dubbo service DoctorManagerImp called");
-        //return doctorService.findDoctorsByDeptId(department, age, rankRange);//TODO
-        return ret;
+        return doctorService.findDoctorsByDeptId(department, age, rankRange);//TODO
+        //return ret;
     }
 
     @Override

@@ -36,10 +36,8 @@ public class FrontMain {
         Department dept = new Department();
         dept.setId("uehe003fh835fh934");
 
-        new Thread(() -> {
-            List<Doctor> doctorList = doctorManager.findDoctorsByDeptId(dept, -1, rankRange);
-            System.out.println("InvokerTest doctorList ");
-        }).start();
+        List<Doctor> doctorList = doctorManager.findDoctorsByDeptId(dept, -1, rankRange);
+        System.out.println("InvokerTest doctorList ");
         System.out.println("InvokerTest main ends ");
 
     }

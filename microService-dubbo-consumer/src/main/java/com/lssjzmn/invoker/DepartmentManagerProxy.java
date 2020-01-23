@@ -16,7 +16,7 @@ public class DepartmentManagerProxy implements DepartmentManager {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @Reference
+    @Reference(timeout = 10000, check = false)
     private DepartmentManager departmentManager;
 
     @Override

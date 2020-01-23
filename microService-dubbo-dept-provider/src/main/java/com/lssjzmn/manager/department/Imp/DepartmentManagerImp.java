@@ -34,7 +34,7 @@ public class DepartmentManagerImp implements DepartmentManager {
     @Autowired
     private DepartmentService departmentService;
 
-    @Reference
+    @Reference(timeout = 10000, check = false)
     private DoctorManager doctorManager;
 
     @Override
